@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
   <head>
@@ -30,9 +29,24 @@
       -->
     <h1>Demo: Get Started Debugging JavaScript with Chrome DevTools</h1>
     <label for="num1">Number 1</label>
-    <input placeholder="Number 1" id="num1">
+    <input placeholder="Number 1" id="num1" type="number">
     <label for="num2">Number 2</label>
-    <input placeholder="Number 2" id="num2">
-    <button onclick="console.log(document.getElementById('num1').value+document.getElementById('num2').value)">Add Number 1 and Number 2</button>
+    <input placeholder="Number 2" id="num2" type="number">
+    <button onclick="addNumbers()">Add Number 1 and Number 2</button>
+
+    <script>
+      function addNumbers() {
+        const val1 = document.getElementById('num1').value;
+        const val2 = document.getElementById('num2').value;
+        const n1 = Number(val1);
+        const n2 = Number(val2);
+
+        if (val1.trim() === '' || val2.trim() === '' || isNaN(n1) || isNaN(n2)) {
+          console.log("Please enter numbers only");
+        } else {
+          console.log(n1 + n2);
+        }
+      }
+    </script>
   </body>
 </html>
